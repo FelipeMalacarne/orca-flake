@@ -23,6 +23,6 @@
         inherit (self.packages.${pkgs.stdenv.hostPlatform.system}) orca-ide;
       });
 
-      formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
+      formatter = forAllSystems (pkgs: pkgs.nixfmt-tree);
     };
 }
