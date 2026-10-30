@@ -1,0 +1,37 @@
+name: update
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to package (default: latest)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v31
+      - name: Update sources
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./update.sh "${{ inputs.tag }}"
+      - name: Build and commit
+        run: |
+          git diff --quiet sources.json && exit 0
+          nix build .#orca-ide -L
+          version="$(jq -r .version sources.json)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "orca-ide: $version"
+          git push
