@@ -1,13 +1,13 @@
 {
-  "version": "1.4.262",
+  "version": "1.4.263",
   "assets": {
     "aarch64-linux": {
-      "url": "https://github.com/stablyai/orca/releases/download/v1.4.262/orca-linux-arm64.AppImage",
-      "hash": "sha256-2asHH5UZdMKobS7+XODW4wnzFrWVm9//yuYI6bFTh6w="
+      "url": "https://github.com/stablyai/orca/releases/download/v1.4.263/orca-linux-arm64.AppImage",
+      "hash": "sha256-01SfhwJ+xE6gkWct8sUKXqlc2aBvKYTqYv0qRM6ri4k="
     },
     "x86_64-linux": {
-      "url": "https://github.com/stablyai/orca/releases/download/v1.4.262/orca-linux.AppImage",
-      "hash": "sha256-igLnkE38kjwDHh6H4rgL1ZwnVzMZ8VjiEsuUpJ+Br34="
+      "url": "https://github.com/stablyai/orca/releases/download/v1.4.263/orca-linux.AppImage",
+      "hash": "sha256-zwyhoPar+qiH+HOK2R5xdA5s+CrW0Arw8lMaajYJa+U="
     }
   }
 }
